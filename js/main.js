@@ -63,15 +63,11 @@ function update() {
     moveX += speedX;
     moveY += speedY;
 
-    if (moveX + ballSize < canvas.width) {
-        speedX += 5;
-    } else if (moveX > 0) {
-        speedX -= 5;
-    } else if (moveY > 0) {
-        speedY -= 4;
-
-    } else if (moveY + ballSize < canvas.height) {
-        speedY += 4;
+    if (moveX + ballSize > canvas.width || moveX < 0) {
+        speedX = -speedX;
+    }
+    if (moveY + ballSize > canvas.height || moveY < 0) {
+        speedY = -speedY;
     }
 
 
